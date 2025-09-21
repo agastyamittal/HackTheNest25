@@ -1,0 +1,50 @@
+{
+  "manifest_version": 3,
+  "name": "Security Scanner (Dev)",
+  "version": "0.1",
+  "description": "Analyze URLs for scam patterns and check email addresses for data breaches.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "webNavigation",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://www.virustotal.com/*",
+    "https://safebrowsing.googleapis.com/*",
+    "https://haveibeenpwned.com/*",
+    "https://api.allorigins.win/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  },
+  "background": {
+    "service_worker": "service_worker.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["warning.html", "warning.js", "styles.css", "popup_blocker.html", "popup_blocker.js", "popup_detector.js", "popup_rules.json"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["popup_detector.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "world": "ISOLATED"
+    }
+  ]
+}

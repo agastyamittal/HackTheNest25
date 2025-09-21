@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scam Scanner Warning</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="warning-page">
+  <div class="warning-container">
+    <div class="warning-card">
+      <div class="warning-header">
+        <div class="warning-icon">⚠️</div>
+        <h1 class="warning-title">Website Blocked</h1>
+        <p class="warning-subtitle">Potential security threat detected</p>
+      </div>
+      
+      <div class="warning-content">
+        <div id="warningDetails" class="warning-details"></div>
+      </div>
+      
+      <div class="warning-actions">
+        <button id="goBackBtn" class="btn btn-secondary">
+          <span class="btn-icon">🔙</span>
+          Go Back Safely
+        </button>
+        <button id="continueBtn" class="btn btn-danger">
+          <span class="btn-icon">⚡</span>
+          Continue Anyway
+        </button>
+      </div>
+    </div>
+  </div>
+  <script src="warning.js"></script>
+</body>
+</html>

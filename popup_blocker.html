@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup Blocked - Security Scanner</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            padding: 30px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+        .icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #dc3545;
+            margin: 0 0 10px 0;
+            font-size: 24px;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 16px;
+        }
+        .details {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .detail-item {
+            margin: 10px 0;
+            word-break: break-all;
+        }
+        .detail-label {
+            font-weight: 600;
+            color: #495057;
+        }
+        .detail-value {
+            color: #212529;
+            margin-top: 5px;
+        }
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        button {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-block {
+            background: #dc3545;
+            color: white;
+        }
+        .btn-block:hover {
+            background: #c82333;
+        }
+        .btn-allow {
+            background: #28a745;
+            color: white;
+        }
+        .btn-allow:hover {
+            background: #218838;
+        }
+        .checkbox-container {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .checkbox-container label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #666;
+        }
+        input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+        }
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">🚫</div>
+        <h1>Popup Blocked</h1>
+        <p class="subtitle">Security Scanner has blocked a popup window</p>
+        
+        <div class="details">
+            <div class="detail-item">
+                <div class="detail-label">Target URL:</div>
+                <div class="detail-value" id="popupUrl">Loading...</div>
+            </div>
+            <div class="detail-item">
+                <div class="detail-label">Source Domain:</div>
+                <div class="detail-value" id="popupDomain">Loading...</div>
+            </div>
+            <div class="detail-item">
+                <div class="detail-label">Trigger:</div>
+                <div class="detail-value" id="popupSource">Loading...</div>
+            </div>
+        </div>
+        
+        <div class="checkbox-container">
+            <label>
+                <input type="checkbox" id="rememberChoice">
+                Remember my choice for this website
+            </label>
+        </div>
+        
+        <div class="buttons">
+            <button class="btn-block" id="blockBtn">🛡️ Block Popup</button>
+            <button class="btn-allow" id="allowBtn">✅ Allow Popup</button>
+        </div>
+    </div>
+    
+    <script src="popup_blocker.js"></script>
+</body>
+</html>

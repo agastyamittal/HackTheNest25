@@ -1,0 +1,103 @@
+<!-- filepath: popup.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Security Scanner</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">
+        <div class="shield-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h1>Security Scanner</h1>
+        <div class="theme-toggle">
+          <button id="themeToggle" class="theme-toggle-btn">
+            <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
+              <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <div class="url-scanner">
+        <div class="input-label">🔍 URL Security Scanner</div>
+        <div class="input-group">
+          <input type="url" id="urlInput" placeholder="https://example.com" class="url-input">
+          <button id="scanBtn" class="btn btn-primary">
+            <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2" stroke="currentColor" stroke-width="2" fill="currentColor"/>
+            </svg>
+            Scan
+          </button>
+        </div>
+        
+        <button id="gotoScan" class="btn btn-secondary">
+          <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+            <circle cx="9" cy="9" r="2" stroke="currentColor" stroke-width="2"/>
+            <path d="m21 15-3.086-3.086a2 2 0 0 0-1.414-.586H15" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          Scan Current Page
+        </button>
+        
+        <div id="status" class="status"></div>
+        <div id="result" class="result"></div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="email-scanner">
+        <div class="input-label">📧 Email Breach Checker</div>
+        <div class="input-group">
+          <input type="email" id="emailInput" placeholder="your@email.com" class="url-input">
+          <button id="emailScanBtn" class="btn btn-primary">
+            <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+              <circle cx="12" cy="16" r="1" fill="currentColor"/>
+              <path d="M7 11V7A5 5 0 0 1 17 7V11" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            Check
+          </button>
+        </div>
+      </div>
+      
+      <div id="emailStatus" class="status"></div>
+      <div id="emailResult" class="result"></div>
+
+      <div class="divider"></div>
+      
+      <div class="popup-settings">
+        <h3>🛡️ Popup Blocker</h3>
+        <div class="setting-item">
+          <label class="switch">
+            <input type="checkbox" id="popupBlockerToggle" checked>
+            <span class="slider"></span>
+          </label>
+          <span>Block malicious popups</span>
+        </div>
+        <button id="popupSettingsBtn" class="btn btn-secondary">
+          <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          Manage Settings
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
